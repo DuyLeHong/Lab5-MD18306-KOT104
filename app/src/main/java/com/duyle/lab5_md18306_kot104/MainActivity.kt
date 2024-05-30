@@ -135,9 +135,11 @@ fun LoginScreen(navController: NavHostController) {
         )
         Spacer(modifier = Modifier.height(10.dp))
 
-        RememberMeSwitch(isCheckedRememberAccount){
-            isCheckedRememberAccount = ! isCheckedRememberAccount
+        val toggleSaveData = {
+                _: Boolean -> isCheckedRememberAccount = !isCheckedRememberAccount
         }
+
+        RememberMeSwitch(isCheckedRememberAccount, toggleSaveData)
 
         Spacer(modifier = Modifier.height(12.dp))
         Button(
